@@ -1,0 +1,23 @@
+<mat-form-field>
+  <mat-select (openedChange)="clearFilterValue()" [placeholder]="placeHolder" [required]="required" #iselect="ngModel"
+    name="iselect" [(ngModel)]="item" (selectionChange)="changeItemSelected(item)">
+    <div class="conten-search">
+      <mat-form-field class="full-content">
+        <input [placeholder]="placeholderLabelSearch" #ifilterInput="ngModel" name="ifilterInput" [(ngModel)]="filterInput"
+          matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar..">
+        <button mat-icon-button [hidden]="filterInput==''" class="poiner-select" matSuffix (click)="clearFilterValue()">
+          <mat-icon aria-label="">close</mat-icon>
+        </button>
+      </mat-form-field>
+      <button [hidden]="!btnSearchActive" mat-icon-button (click)="onSearch()">
+        <mat-icon aria-label="">search</mat-icon>
+      </button>
+    </div>
+    <mat-option *ngFor="let it of lstFilter" [value]="it">
+      {{getNameClass(it)}}
+    </mat-option>
+    <div class="center-place-holder" *ngIf="lstFilter.length <=0">
+      {{noEntriesFoundSearch}}
+    </div>
+  </mat-select>
+</mat-form-field>

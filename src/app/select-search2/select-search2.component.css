@@ -1,0 +1,19 @@
+.poiner-select{
+cursor: pointer;
+}
+.full-content{
+    width: 100%;
+}
+.center-place-holder{
+    text-align: center;
+}
+.conten-search{
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    display: flex;
+}
+.mat-icon-button:focus {
+border: none!important;
+outline: none!important;
+}

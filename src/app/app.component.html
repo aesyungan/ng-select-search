@@ -1,0 +1,26 @@
+<router-outlet></router-outlet>
+<h3>ejemplo busqueda en select con angular material</h3>
+<hr>
+<form #frm="ngForm">
+  <input required type="number" pattern="[0-9]" id="ci_ruc_repres" #ci_ruc_repres="ngModel" name="ci_ruc_repres"
+    [(ngModel)]="item.edad" placeholder="Edad">
+  <br>
+  <hr>
+  <app-select-search [required]="false" [(item)]="item" [lst]="lst" [label]="['nombre','edad']" [filterName]="'nombre'"
+    [placeHolder]="'Persona'" [placeholderLabelSearch]="'Nombres'" [noEntriesFoundSearch]="'No existen mas resultados'"
+    (itemChange)="cambioselect($event)">
+  </app-select-search>
+  <hr>
+  <button [disabled]="!frm.form.valid" class="btn btn-success" value="Guardar" (click)="insertar()">Add</button>
+
+
+  <hr>
+
+  <app-select-search2 [placeHolder]="'Persona'" [required]="true" [lst]="lst" [(item)]="item" [filterName]="'nombre'"
+    [label]="['nombre','edad']" [placeholderLabelSearch]="'Nombres'" [noEntriesFoundSearch]="'No existen mas resultados'"></app-select-search2>
+
+  <app-select-search2 [placeHolder]="'Persona'" [required]="false" [lst]="lst" [(item)]="item" [filterName]="'nombre'"
+    [label]="['nombre','edad']" [placeholderLabelSearch]="'Nombres'" [noEntriesFoundSearch]="'No existen mas resultados'"
+    [btnSearchActive]="true" (btnOnSearch)="test($event)"></app-select-search2>
+
+</form>
